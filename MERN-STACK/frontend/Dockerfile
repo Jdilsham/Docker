@@ -1,10 +1,12 @@
-FROM node:20
+FROM node:21-alpine
+
+RUN npm install -g vite
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
 
-RUN rm -rf node_modules && npm install
+RUN npm install
 
 COPY . .
 
